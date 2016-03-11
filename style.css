@@ -1,0 +1,107 @@
+
+html{
+	font-size: 100%;
+}
+body{
+	margin: 0 auto;
+	max-width: 1000px;
+	font-family: verdana, sans-serif;
+	background-color: gainsboro;
+	clear: both;
+	font-size: 1rem;
+	line-height: 1.5rem;
+	letter-spacing: .025rem;	
+}
+a{
+	text-decoration: none;
+	color:red;
+}
+h2,h3,h4,h5,h6{
+	font-size: 1.5rem;
+	line-height: 2rem;
+	color:#333A40;
+}
+header{
+	height: 15rem;
+	background: url(images/header.jpg) no-repeat center 10%;
+	background-size: cover;
+	position: relative;
+}
+header h1{
+	font-size: 5rem;
+	position: absolute;
+	bottom: 5rem;
+	left: 50%;
+	text-indent: -9rem;
+	color: white;
+	text-shadow: 0 1px 0 #ccc,
+	             0 2px 0 #c9c9c9,
+	             0 3px 0 #bbb,
+	             0 4px 0 #b9b9b9,
+	             0 5px 0 #aaa,
+	             0 6px 1px rgba(0,0,0,.1),
+	             0 0 5px rgba(0,0,0,.1),
+	             0 1px 3px rgba(0,0,0,.3),
+	             0 3px 5px rgba(0,0,0,.2),
+	             0 5px 10px rgba(0,0,0,.25),
+	             0 10px 10px rgba(0,0,0,.2),
+	             0 20px 20px rgba(0,0,0,.15);}
+.container{
+	display: table;
+}
+main{
+	display:table-cell;
+	width: 75%;
+	padding:1rem;
+	background-color: ghostwhite;
+}
+main h2{
+	border-bottom: solid 1px slategray;
+	margin-bottom: 1rem;
+	padding-bottom: 1rem;
+	font-size: 1.75rem;
+}
+main article{
+	margin-bottom: 1rem;
+}
+main article h3 {
+}
+main article div.post-meta{
+	margin-bottom: 1rem;
+	color:slategray;
+}
+aside{
+	display:table-cell;
+	width: 25%;
+	padding:1rem;
+	background-color: ghostwhite;
+	-webkit-box-shadow: inset -10px 0px 45px -25px slategray;
+	   -moz-box-shadow: inset -10px 0px 45px -25px slategray;
+					box-shadow: inset -10px 0px 45px -25px slategray;
+}    
+aside h2{
+	font-size: 1.25rem;
+
+}
+aside ul{
+	list-style-type: none;
+	margin:0 0 .5rem .5rem;
+	font-size: 1.125rem;
+	line-height: 1.75rem;
+}
+aside li:before{
+	content: "+";
+	display:block;
+	float: left;
+	margin-right: .5rem;
+	letter-spacing: .01rem;
+	font-size: 1rem;
+	color:red;
+}
+
+footer{
+	clear: both;
+	background-color: silver;
+	height:10rem;
+	overflow: hidden;
+}
