@@ -65,10 +65,17 @@ main article{
 	margin-bottom: 1rem;
 }
 main article h3 {
+	color:cadetblue;
 }
 main article div.post-meta{
 	margin-bottom: 1rem;
 	color:slategray;
+}
+main ul.comment-list {
+	list-style-type: none;
+}	
+main ul.comment-list h3{
+	font-size: 1rem;
 }
 aside{
 	display:table-cell;

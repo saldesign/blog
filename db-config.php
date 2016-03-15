@@ -11,4 +11,7 @@ if($db->connect_errno > 0){ // -> is how mysql accesses object methods and prope
 	die('Could not connect to DB:'.$db->connect_error);
 }
 
+//error reporting
+error_reporting( E_ALL & ~E_NOTICE);
+
 // no close php
