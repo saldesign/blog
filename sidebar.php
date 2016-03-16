@@ -1,5 +1,9 @@
 <div class="container"><!-- Open .container -->
 	<aside>
+	<form action="search.php" method="get">	
+		<input type="text" name="phrase" placeholder="Search...">
+		<input type="submit" value="Search">
+	</form>
 	<?php 
 	//get titles of up to 5 latest published posts
 	$query_latest = "SELECT posts.title, post_id

@@ -8,7 +8,7 @@
 	<main>
 		<?php 
 		//get 2 recently published posts
-			$query = "SELECT posts.title, posts.body, posts.date, categories.name, users.username 
+			$query = "SELECT posts.title, posts.post_id, posts.body, posts.date, categories.name, users.username 
 								FROM posts, categories, users
 								WHERE posts.is_published = 1
 								AND posts.category_id = categories.category_id
@@ -31,11 +31,11 @@
 		<h2>My Blog:</h2>
 			<?php while($row = $result->fetch_assoc() ){ ?>
 			<article>
-				<h3><?php echo $row['title']; ?></h3>				
+				<h3><a href="single.php?post_id=<?php echo $row['post_id'] ?>"><?php echo $row['title']; ?></a></h3>				
 				<div class="post-meta">
-					<p>Author: <?php echo $row['username'] ?></p>
-					<p>Posted on: <?php echo nice_date($row['date']);?></p>
-					<p>Category:<?php echo $row['name'] ?></p></div>
+					<p><?php echo $row['username'] ?></p>
+					<p><?php echo nice_date($row['date']);?></p>
+					<p><?php echo $row['name'] ?></p></div>
 				<p><?php echo $row['body']; ?></p>
 			</article>
 			<?php

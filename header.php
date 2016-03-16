@@ -8,7 +8,7 @@
 </head>
 <body>
 <header>
-	<h1>My Blog</h1>	
+	<h1><a href="blog.php">My Blog</a></h1>	
 
 
 </header>
