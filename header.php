@@ -5,6 +5,7 @@
 	<title>My Blog!</title>
 	<link rel="stylesheet" type="text/css" href="reset.css">
 	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="alternate" type="application/rss+xml" href="rss.php">
 </head>
 <body>
 <header>
