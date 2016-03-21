@@ -59,6 +59,10 @@ main{
 	padding:1rem;
 	background-color: ghostwhite;
 }
+body.login main{
+	display: block;
+	width: 97%;
+}
 main a{
 	color:#088D91;
 }
@@ -119,3 +123,6 @@ footer{
 	height:10rem;
 	overflow: hidden;
 }
+
+
+
