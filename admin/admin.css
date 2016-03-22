@@ -22,7 +22,19 @@ body.login {
 .warn {
   color: lightsalmon;
 }
-
+.error:before{
+  content: '*';
+    position: absolute;
+    top:0;
+    left: -1rem;
+}
+.error{
+  color: salmon;
+  position: relative;
+}
+.error + input{
+  border-color: lightsalmon; 
+}
 /* header */
 header[role=banner] {
   background: white;

@@ -34,4 +34,11 @@ function count_comments( $post_id ){
 	}//end if
 }//end count_comments() 
 
+//Use for hilighting form fields with an error
+function field_error($problem){
+	if(isset($problem)){
+		echo 'class="error"';
+	}
+}
+
 
