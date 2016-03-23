@@ -1,80 +1,24 @@
 <?php 
-session_start();
-require('../db-config.php');
+require('../db-config.php'); //require will kill the page if it doesn't load successfully 
+include_once(ROOT_PATH . '/functions.php');
+require(ROOT_PATH . '/admin/admin-header.php');
+include(ROOT_PATH . '/admin/admin-nav.php'); ?>
 
-//if the user is returning with a valid cookie, re-create the session
-if( array_key_exists('secretkey', $_COOKIE) AND
-		array_key_exists('user_id', $_COOKIE) ){
-	$_SESSION['secretkey'] = $_COOKIE['secretkey'];
-	$_SESSION['user_id'] = $_COOKIE['user_id'];
-}
-
-//Password Protection
-//Make sure secret key matches the one in the DB
-$user_id = $_SESSION['user_id'];
-$secretkey = $_SESSION['secretkey'];
-$query = "SELECT * FROM users 
-				WHERE user_id = $user_id
-				AND secret_key = '$secretkey'
-				LIMIT 1";
-$result = $db->query($query);
-//if the query has an error because of a NULL user_id, send them back to login
-if(!$result){
-	header('Location:../login.php');
-}
-//if no rows are found because they are not logged in, send them back to login
-if($result->num_rows == 1){
-	//extract info about the user
-	$row = $result->fetch_assoc();
-	$username = $row['username'];
-}else{
-	header('Location:../login.php');
-}
- ?>
-<!DOCTYPE html>
-<html>
-<head>
-	<meta charset="utf-8">
-	<title>Admin Panel</title>
-	<link rel="stylesheet" type="text/css" href="../reset.css">
-	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,400italic">
-	<link rel="stylesheet" type="text/css" href="admin.css">
-</head>
-<body>
-<header role="banner">
-  <h1>Admin Panel</h1>
-  <ul class="utilities">
-    <li class="users"><a href="#">My Account</a></li>
-    <li class="logout warn"><a href="../login.php?action=logout">Log Out</a></li>
-  </ul>
-</header>
-
-<nav role='navigation'>
-  <ul class="main">
-    <li class="dashboard"><a href="#">Dashboard</a></li>
-    <li class="write"><a href="#">Write Post</a></li>
-    <li class="edit"><a href="#">Edit Posts</a></li>
-    <li class="comments"><a href="#">Comments</a></li>
-    <li class="users"><a href="#">Manage Users</a></li>
-  </ul>
-</nav>
 
 <main role="main">
   <section class="panel important">
-    <h2>Welcome to Your Dashboard </h2>
+    <h2>Welcome to Your Dashboard <?php echo USERNAME; ?></h2>
     <ul>
-      <li>Important panel that will always be really wide Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
-      <li>Aliquam tincidunt mauris eu risus.</li>
+      <li>Account Type: <?php echo IS_ADMIN == 1 ? 'Administrator' : 'Commenter'; ?></li>
       <li>Vestibulum auctor dapibus neque.</li>
     </ul>
   </section>
   <section class="panel">
-    <h2>Posts</h2>
+    <h2>Your Stats:</h2>
     <ul>
-      <li><b>2458 </b>Published Posts</li>
-      <li><b>18</b> Drafts.</li>
-      <li>Most popular post: <b>This is a post title</b>.</li>
+      <li><b><?php echo count_posts(USER_ID ); ?> </b>Published Posts</li>
+      <li><b><?php echo count_posts(USER_ID,0 ); ?></b> Drafts.</li>
+      <li>Most popular post: <b><?php echo most_popular_post(USER_ID); ?></b>.</li>
     </ul>
   </section>
   <section class="panel">
@@ -166,6 +110,4 @@ if($result->num_rows == 1){
   </section>
 
 </main>
-<footer role="contentinfo">Easy Admin Style by Melissa Cabral</footer>
-</body>
-</html>
+<?php include(ROOT_PATH . '/admin/admin-footer.php') ?>

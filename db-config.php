@@ -14,4 +14,10 @@ if($db->connect_errno > 0){ // -> is how mysql accesses object methods and prope
 //error reporting
 error_reporting( E_ALL & ~E_NOTICE);
 
+// define some URL / path constants to make linking easier
+// URL is for href, src
+// PATH is for includes
+define( 'ROOT_URL', 'http://localhost/christian_php/blog' );
+define ( 'ROOT_PATH', 'C:\xampp\htdocs\christian_php\blog');
+
 // no close php

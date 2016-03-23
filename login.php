@@ -85,7 +85,7 @@ if($_POST['did_login']){
 <head>
 	<meta charset="utf-8">
 	<title>Log In to your account</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo ROOT_URL; ?>/style.css">
 </head>
 <body class="login">
 
