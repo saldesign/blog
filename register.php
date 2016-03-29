@@ -129,7 +129,7 @@ if($_POST['did_register']){
 			<input type="checkbox" name="policy" value="1"  <?php echo $policy == 1 ? 'checked' : ''; ?>>
 			I agree to the <a href="#">terms of service</a> and privacy policy
 		</label>
-		<input type="submit" value="Submit">
+		<input class="btn" type="submit" value="Submit">
 		<input type="hidden" name="did_register" value="1">
 </form>
 

@@ -5,8 +5,6 @@ include_once('functions.php');
 
 //logout action
 if($_GET['action'] == 'logout'){
-	//TODO: remove the secret key from the DB
-
 	//destroy the session, make all cookies null and expired
 	session_destroy();
 
